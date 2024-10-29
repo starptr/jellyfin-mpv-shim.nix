@@ -14,20 +14,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, jellyfin-mpv-shim, pystray, ... } @ inputs:
-      let
-        system = "aarch64-darwin";
-      in let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-      in
-      {
-        packages.${system} = {
-          pystray = let
+  outputs =
+    {
+      self,
+      nixpkgs,
+      jellyfin-mpv-shim,
+      pystray,
+      ...
+    }@inputs:
+    let
+      system = "aarch64-darwin";
+    in
+    let
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in
+    {
+      packages.${system} = {
+        pystray =
+          let
             pname = "pystray";
             version = "0.19.5";
-          in pkgs.python312Packages.buildPythonPackage {
+          in
+          pkgs.python312Packages.buildPythonPackage {
             inherit pname version;
             src = pystray;
             postPatch = ''
@@ -39,10 +49,12 @@
               six
             ];
           };
-          jellyfin-mpv-shim = let
+        jellyfin-mpv-shim =
+          let
             pname = "jellyfin-mpv-shim";
             version = "2.8.0";
-          in pkgs.python312Packages.buildPythonApplication {
+          in
+          pkgs.python312Packages.buildPythonApplication {
             inherit pname version;
             src = pkgs.fetchPypi {
               inherit pname version;
@@ -68,7 +80,8 @@
             doCheck = false;
             pythonImportsCheck = [ "jellyfin_mpv_shim" ];
           };
-          default = self.packages.${system}.jellyfin-mpv-shim;
-        };
+        default = self.packages.${system}.jellyfin-mpv-shim;
       };
+      formatter.${system} = pkgs.nixfmt-rfc-style;
+    };
 }

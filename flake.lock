@@ -21,15 +21,16 @@
     "jellyfin-mpv-shim": {
       "flake": false,
       "locked": {
-        "lastModified": 1730115697,
-        "narHash": "sha256-OEIX3NayAPPCf0mktsFRbgTEFZwCt2UZ+3supjUJat0=",
+        "lastModified": 1717627803,
+        "narHash": "sha256-miShs82yexR5ozglH1mG27MpmEN4VZv5tNa7bnGFDO4=",
         "owner": "jellyfin",
         "repo": "jellyfin-mpv-shim",
-        "rev": "e6f79dc2fde0226845e58ded8185cca2267b630e",
+        "rev": "3fdbfc1798d24d9b71a1d588f4bf42248137da03",
         "type": "github"
       },
       "original": {
         "owner": "jellyfin",
+        "ref": "v2.8.0",
         "repo": "jellyfin-mpv-shim",
         "type": "github"
       }
@@ -50,11 +51,29 @@
         "type": "github"
       }
     },
+    "pystray": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694958242,
+        "narHash": "sha256-CZhbaXwKFrRBEomzfFPMQdMkTOl5lbgI64etfDRiRu4=",
+        "owner": "moses-palmer",
+        "repo": "pystray",
+        "rev": "1907f8681d6d421517c63d94f425f9cdd74d0034",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moses-palmer",
+        "ref": "v0.19.5",
+        "repo": "pystray",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "jellyfin-mpv-shim": "jellyfin-mpv-shim",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pystray": "pystray"
       }
     },
     "systems": {

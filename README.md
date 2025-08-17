@@ -1,3 +1,5 @@
+Moved to Everything repo.
+
 # jellyfin-mpv-shim.nix
 
 This is a thin flake for jellyfin-mpv-shim, a client for Jellyfin that uses mpv as a backend.
